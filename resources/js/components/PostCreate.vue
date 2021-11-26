@@ -17,7 +17,7 @@
 
 <script>
 import { reactive } from 'vue'
-import usePosts from '../services/PostServices';
+import usePosts from '../composable/PostServices';
     export default {
         setup() {
             const form = reactive({
