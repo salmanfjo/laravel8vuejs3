@@ -1,26 +1,25 @@
 <template>
-    <div>
-        <div v-for="post in posts" :key="post.id">  
-            <router-link :to="{name: 'posts.create'}" >
+    <div class="mx-auto max-w-screen-lg">
+        <router-link :to="{name: 'posts.create'}" >
             Créer un post
             </router-link>
-    
-            <div>
-                titre
-            </div>
-            <div v-text="post.title">
-            </div>
-            <div>
-                description
-            </div>
-            <div v-text="post.description">
-            </div>
-            <button class="ring-0 bg-red-50" v-on:click="deletePost(post.id)">delete</button>
-            <td class="px-6 py-4 text-sm text-center leading-5 text-gray-900 whitespace-no-wrap">
-            <router-link :to="{ name: 'posts.edit', params: { id: post.id } }" class="mr-2">
+        <div v-for="post in posts" :key="post.id" class="px-4 border-solid border-gray-400 border-2 rounded w-96 float-left px-4">
+            <div class="">
+                <div>
+                    titre
+                </div>
+                <div v-text="post.title">
+                </div>
+                <div>
+                    description
+                </div>
+                <div v-text="post.description">
+                </div>
+                <button class="ring-0 bg-red-50" v-on:click="deletePost(post.id)">delete</button>
+                <router-link :to="{ name: 'posts.edit', params: { id: post.id } }" class="mr-2">
                 Edit
-            </router-link>
-</td>
+                </router-link>
+            </div>
         </div>
     </div>
 </template>
