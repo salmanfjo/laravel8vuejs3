@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        <meta name="csrf-token" content="{{ csrf_token() }}"/>
         <title>Laravel</title>
 
         <!-- Fonts -->
@@ -25,9 +25,11 @@
                 </div>    
             </div>
         </header>
-        <div id="app">
-            <router-view/>
-        </div>
+        <div class="mx-auto max-w-screen-lg">
+            <div id="app">
+                <router-view/>
+            </div>
+        <div class="mx-auto max-w-screen-lg">
         <script src="{{ asset('js/app.js') }}"></script>
     </body>
 </html>

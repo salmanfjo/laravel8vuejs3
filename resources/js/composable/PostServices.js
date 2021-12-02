@@ -14,8 +14,8 @@ export default function usePosts() {
     };
 
     const getPost = async (id) => {
-        let response = await axios.get(`/api/posts/${id}`)
-        post.value = response.data.data
+        let response = await axios.get(`/api/posts/${id}`);
+        post.value = response.data.data;
     }
 
     const createPost = async (data) => {
@@ -24,7 +24,6 @@ export default function usePosts() {
             router.push({name: 'home'});
         } catch (error) {
             const createPostErrors = error.response.data.errors;
-            console.log(createPostErrors);
             for (const key in createPostErrors) {
                 errors.value += createPostErrors[key][0] + ' ';
             }
@@ -34,8 +33,8 @@ export default function usePosts() {
     const updatePost = async (id) => {
         errors.value = ''
         try {
-            await axios.patch(`/api/posts/${id}`, post.value)
-            await router.push({ name: 'home' })
+            await axios.patch(`/api/posts/${id}`, post.value);
+            await router.push({ name: 'home' });
         } catch (e) {
             if (e.response.status === 422) {
                 for (const key in e.response.data.errors) {
@@ -46,7 +45,7 @@ export default function usePosts() {
     }
 
     const destroyPost = async (id) => {
-        await axios.delete(`/api/posts/${id}`)
+        await axios.delete(`/api/posts/${id}`);
     }
 
     return {
