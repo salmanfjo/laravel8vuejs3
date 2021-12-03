@@ -1,7 +1,8 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Postindex from "../components/Postindex.vue";
-import PostCreate from "../components/PostCreate.vue";
-import PostEdit from "../components/PostEdit.vue";
+import Postindex from "../components/post/Postindex.vue";
+import PostCreate from "../components/post/PostCreate.vue";
+import PostEdit from "../components/post/PostEdit.vue";
+import PostShow from "../components/post/PostShow.vue";
 import Login from "../components/auth/Login.vue";
 
 const  routes = [
@@ -22,6 +23,12 @@ const  routes = [
         props: true
     },
     {
+        path: '/post/show/:id',
+        name: 'post.show',
+        component: PostShow,
+        props: true
+    },
+    {
         path: '/login',
         name: 'login',
         component: Login
@@ -29,6 +36,10 @@ const  routes = [
     {
         path: '/logout',
         name: 'logout',
+    },
+    {
+        path: '/admin/dashboard',
+        name: 'admin.dashboard',
         component: Login
     }
 ];

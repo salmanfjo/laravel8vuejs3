@@ -16,20 +16,23 @@
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     </head >
     <body class="antialiased">
-        <header class="">
-            <div class="">
-                <div class="flex justify-center items-center">
-                    <nav class="h-12">
-                        <a href="{{ url('/') }}" class="">My Blog</a>
-                    </nav>
-                </div>    
-            </div>
-        </header>
-        <div class="mx-auto max-w-screen-lg">
+        @if (Auth::check())
+            <script>
+                window.Laravel = {!!json_encode([
+                    'isLoggedin' => true,
+                    'user' => Auth::user()
+                ])!!}
+            </script>
+        @else
+            <script>
+                window.Laravel = {!!json_encode([
+                    'isLoggedin' => false
+                ])!!}
+            </script>
+        @endif
             <div id="app">
                 <router-view/>
             </div>
-        <div class="mx-auto max-w-screen-lg">
         <script src="{{ asset('js/app.js') }}"></script>
     </body>
 </html>

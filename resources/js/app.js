@@ -8,7 +8,7 @@ import '../css/app.css';
 
 createApp({
     components: {
-        Postindex
+        Postindex,
     }
 })
 .use(router)

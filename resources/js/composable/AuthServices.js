@@ -26,13 +26,9 @@ export default function login() {
                 console.log('dd');
             }); 
         } catch (error) {
-            const createPostErrors = error.response.data.errors;
-            for (const key in createPostErrors) {
-                errors.value += createPostErrors[key][0] + ' ';
-            }
-        
+            console.log(error);
+        }
     }
-}
 
     return {
         handleLogin,

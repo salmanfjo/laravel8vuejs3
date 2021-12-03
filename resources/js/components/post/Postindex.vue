@@ -1,5 +1,6 @@
 <template>
-    <div class="">
+    <Header />
+    <div class="mx-auto max-w-screen-lg">
         
 
         <button @click="logout">Logout</button>
@@ -34,10 +35,14 @@
 </template>
 
 <script>
-import usePosts from '../composable/PostServices';
-import login from '../composable/AuthServices';
+import usePosts from '../../composable/PostServices';
+import login from '../../composable/AuthServices';
+import Header from '../partials/header';
 import { onMounted } from 'vue';
 export default {
+    components: {
+        Header
+    },
     setup() {
 
         const { posts, getPosts, destroyPost } = usePosts();
