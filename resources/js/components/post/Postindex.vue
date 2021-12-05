@@ -13,22 +13,24 @@
 
         <div class="grid grid-flow-raw grid-cols-3 grid-rows-3 gap-4">
             <div v-for="post in posts" :key="post.id" class="px-4 border-solid border-gray-400 border-2 rounded shadow-md">
-                <div class="">
-                    <div>
-                        titre
+                <router-link :to="{ name: 'post.show', params: { id: post.id } }">
+                    <div class="">
+                        <div>
+                            titre
+                        </div>
+                        <div v-text="post.title">
+                        </div>
+                        <div>
+                            description
+                        </div>
+                        <div v-text="post.description">
+                        </div>
+                        <button class="ring-0 bg-red-50" v-on:click="deletePost(post.id)">delete</button>
+                        <router-link :to="{ name: 'posts.edit', params: { id: post.id } }" class="mr-2">
+                        Edit
+                        </router-link>
                     </div>
-                    <div v-text="post.title">
-                    </div>
-                    <div>
-                        description
-                    </div>
-                    <div v-text="post.description">
-                    </div>
-                    <button class="ring-0 bg-red-50" v-on:click="deletePost(post.id)">delete</button>
-                    <router-link :to="{ name: 'posts.edit', params: { id: post.id } }" class="mr-2">
-                    Edit
-                    </router-link>
-                </div>
+                </router-link>  
             </div>
         </div>
     </div>

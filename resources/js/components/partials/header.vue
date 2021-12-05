@@ -3,7 +3,9 @@
             <div class="">
                 <div class="flex justify-center items-center">
                     <nav class="h-12">
-                        <a href="{{ url('/') }}" class="">My Blog</a>
+                        <router-link :to="{name: 'home'}">
+                            My Blog
+                        </router-link>
                     </nav>
                 </div>    
             </div>
